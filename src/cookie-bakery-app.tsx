@@ -133,47 +133,9 @@ function AboutPage() {
   );
 }
 
-// Recipes Page Component
-function RecipesPage() {
-  const recipes = [
-    {
-      name: 'Grandma\'s Chocolate Chip Secrets',
-      difficulty: 'Easy',
-      time: '30 mins',
-      icon: '🍪'
-    },
-    {
-      name: 'Vegan Peanut Butter Delight',
-      difficulty: 'Intermediate',
-      time: '45 mins',
-      icon: '🥜'
-    }
-  ];
 
-  return (
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold mb-8 text-center text-amber-900">Baking Inspirations</h1>
-      <div className="grid md:grid-cols-2 gap-6">
-        {recipes.map((recipe, index) => (
-          <div 
-            key={index} 
-            className="bg-white rounded-lg shadow-md p-6 flex items-center hover:shadow-lg transition"
-          >
-            <div className="text-5xl mr-4">{recipe.icon}</div>
-            <div>
-              <h2 className="text-xl font-semibold mb-2">{recipe.name}</h2>
-              <div className="flex space-x-4 text-gray-600">
-                <span>Difficulty: {recipe.difficulty}</span>
-                <span>Time: {recipe.time}</span>
-              </div>
-              <button className="mt-2 text-teal-600 hover:underline">View Recipe</button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+
+
 
 // Main App Component with Navigation
 function BakeryApp() {
@@ -212,14 +174,6 @@ function BakeryApp() {
               </NavLink>
               <NavLink 
                 to="/recipes" 
-                className={({ isActive }) => 
-                  `hover:text-amber-700 ${isActive ? 'text-amber-900 font-bold' : 'text-gray-600'}`
-                }
-              >
-                Recipes
-              </NavLink>
-              <NavLink 
-                to="/about" 
                 className={({ isActive }) => 
                   `hover:text-amber-700 ${isActive ? 'text-amber-900 font-bold' : 'text-gray-600'}`
                 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import CookieFlavorSlotMachine from './CookieFlavorSlotMachine'
+import BakeryApp from './cookie-bakery-app'
 import './App.css'
 
 function App() {

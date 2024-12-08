@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, NavLink } from 'react-router-dom';
-import { Cookie, Home, Info, Zap, Muffin } from 'lucide-react';
+import { Cookie, Home, Info, Zap } from 'lucide-react';
 
 // Import the existing slot machine component
 import CookieFlavorSlotMachine from './CookieFlavorSlotMachine';
@@ -173,7 +173,7 @@ function BakeryApp() {
                 Flavor Generator
               </NavLink>
               <NavLink 
-                to="/recipes" 
+                to="/about" 
                 className={({ isActive }) => 
                   `hover:text-amber-700 ${isActive ? 'text-amber-900 font-bold' : 'text-gray-600'}`
                 }

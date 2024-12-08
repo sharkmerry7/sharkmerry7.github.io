@@ -189,7 +189,6 @@ function BakeryApp() {
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/flavor-generator" element={<CookieFlavorSlotMachine />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/recipes" element={<RecipesPage />} />
         </Routes>
 
         <footer className="bg-white py-6 mt-12 border-t">

@@ -70,7 +70,7 @@ function MenuPage() {
   return (
     <div className="container mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-8 text-center text-amber-900">Our Delectable Menu</h1>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="max-w-4xl grid md:grid-cols-2 gap-6">
         {menuItems.map((item, index) => (
           <div 
             key={index} 
@@ -94,7 +94,7 @@ function AboutPage() {
   return (
     <div className="container mx-auto px-6 py-12">
       <h1 className="text-3xl font-bold mb-8 text-center text-amber-900">About Sweet Serendipity</h1>
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
         <div className="flex items-center mb-6">
           <img 
             src="/api/placeholder/300/300" 
@@ -143,7 +143,7 @@ function BakeryApp() {
     <Router>
       <div className="min-h-screen bg-amber-50">
         <nav className="bg-white shadow-md">
-          <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="max-w-4xl container mx-auto px-6 py-4 flex justify-between items-center">
             <Link to="/" className="flex items-center text-2xl font-bold text-amber-900">
               <Cookie className="mr-2" /> Sweet Serendipity
             </Link>

@@ -140,7 +140,7 @@ const CookieFlavorSlotMachine = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg text-center">
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg text-center">
       <h1 className="text-2xl font-bold mb-4">Midnight Munchies Custom Cookie Creator</h1>
       
       <div className="flex justify-center mb-6">

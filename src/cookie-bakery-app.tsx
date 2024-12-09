@@ -10,9 +10,9 @@ function HomePage() {
   return (
     <div className="container mx-auto px-6 py-12 text-center">
       <h1 className="text-4xl font-bold mb-6 text-amber-900">Welcome to Sweet Serendipity Bakery</h1>
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <img 
-          src="/api/placeholder/800/400" 
+          src="assets/backgroundcookies.jpg" 
           alt="Bakery interior" 
           className="rounded-lg shadow-lg mb-6"
         />

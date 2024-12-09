@@ -9,7 +9,7 @@ const Button = ({ children, onClick, disabled, variant = 'default', className = 
   };
 
   return (
-    <button
+    <button 
       onClick={onClick}
       disabled={disabled}
       className={`${baseStyles} ${variantStyles[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -192,6 +192,7 @@ const CookieFlavorSlotMachine = () => {
           <Button 
             key={index}
             onClick={() => stopReel(index)}
+            variant="ghost"
             disabled={!isAnySpinning || reelLocked[index] || !reelSpinning[index]}
             className="w-24 m-2 bg-grey-400 hover:bg-grey-500"
           >

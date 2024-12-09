@@ -193,7 +193,7 @@ const CookieFlavorSlotMachine = () => {
             key={index}
             onClick={() => stopReel(index)}
             disabled={!isAnySpinning || reelLocked[index] || !reelSpinning[index]}
-            className="w-24 m-2 bg-gray-200 hover:bg-gray-300"
+            className="w-24 m-2 bg-green-200 hover:bg-green-300"
           >
             Stop
           </Button>

@@ -1,6 +1,6 @@
 import React from 'react'
 //import BakeryApp from './cookie-bakery-app'
-import CookieFlavorSlotMachine from './slot'
+import CookieFlavorSlotMachine from './slot.tax'
 import './App.css'
 
 function App() {

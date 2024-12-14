@@ -215,12 +215,12 @@ function CookieFlavorSlotMachine() {
   };
 
   return (
-    <div className="container mx-auto max-w-4xl p-4 bg-white rounded-lg shadow-lg text-center">
-      <h1 className="text-4xl font-bold mb-3">Midnight Munchies Custom Cookie Creator</h1>
-      
+    <div className="container mx-auto max-w-4xl p-4 bg-amber-50 rounded-lg shadow-lg text-center">
+      <h1 className="text-4xl font-bold mb-3 dark:text-white">Midnight Munchies Custom Cookie Creator</h1>
+       
       <div className="flex flex-col items-center">
         <div className="flex justify-center mb-4 w-full">
-          <div className="flex flex-col items-center bg-amber-50 border-2 border-gray-300 rounded-lg p-1 mr-1">
+          <div className="flex flex-col items-center bg-white border-2 border-gray-300 rounded-lg p-1 mr-1">
             <h2 className="text-xs font-semibold mb-1">Dough Flavor</h2>
             <div className="flex flex-col items-center">
               <AnimatedReel 
@@ -239,12 +239,12 @@ function CookieFlavorSlotMachine() {
                 >
                   {reelLocked[0] ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
                 </Button>
-                {!isAnySpinning && <p className="text-xs text-center">{finalToppings[0].name}</p>}
+                {!isAnySpinning && <p className="text-xs text-center dark:text-white">{finalToppings[0].name}</p>}
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center bg-amber-50 border-2 border-gray-300 rounded-lg p-1">
+          <div className="flex flex-col items-center bg-white border-2 border-gray-300 rounded-lg p-1">
             <h2 className="text-xs font-semibold mb-1">Munchie Mix'ins</h2>
             <div className="flex">
               {finalToppings.slice(1).map((topping, index) => (
@@ -264,7 +264,7 @@ function CookieFlavorSlotMachine() {
                     >
                       {reelLocked[index + 1] ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
                     </Button>
-                    {!isAnySpinning && <p className="text-xs text-center">{topping.name}</p>}
+                    {!isAnySpinning && <p className="text-xs text-center dark:text-white">{topping.name}</p>}
                   </div>
                 </div>
               ))}

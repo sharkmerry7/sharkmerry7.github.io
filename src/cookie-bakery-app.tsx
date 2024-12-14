@@ -126,7 +126,7 @@ const TOPPINGS = [
   { name: 'Cinnamon Sugar', emoji: '🌿' }
 ];
 
-const AnimatedReel = ({ isSpinning, finalTopping, isLocked, options }) => {
+function AnimatedReel({ isSpinning, finalTopping, isLocked, options }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -150,30 +150,17 @@ const AnimatedReel = ({ isSpinning, finalTopping, isLocked, options }) => {
   const nextTopping = options[(currentIndex + 1) % options.length];
 
   return (
-    <div className="w-24 h-32 m-2 border-2 flex flex-col items-center justify-center overflow-hidden relative">
-      <div 
-        className={`absolute inset-0 flex flex-col items-center justify-center transition-transform duration-100 ${
-          isSpinning && !isLocked ? '-translate-y-1/2' : ''
-        }`}
-      >
-        <div className="flex flex-col items-center">
-          <div className="text-4xl">{prevTopping.emoji}</div>
-          <p className="text-xs mt-1 text-center">{prevTopping.name}</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="text-4xl">{currentTopping.emoji}</div>
-          <p className="text-xs mt-1 text-center">{currentTopping.name}</p>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="text-4xl">{nextTopping.emoji}</div>
-          <p className="text-xs mt-1 text-center">{nextTopping.name}</p>
-        </div>
+    <div className="w-24 h-32 m-1 border border-gray-200 flex flex-col items-center justify-center overflow-hidden">
+      <div className="flex flex-col items-center">
+        <div className="text-3xl">{prevTopping.emoji}</div>
+        <div className="text-3xl">{currentTopping.emoji}</div>
+        <div className="text-3xl">{nextTopping.emoji}</div>
       </div>
     </div>
   );
-};
+}
 
-const CookieFlavorSlotMachine = () => {
+function CookieFlavorSlotMachine() {
   const [isAnySpinning, setIsAnySpinning] = useState(false);
   const [reelSpinning, setReelSpinning] = useState([false, false, false, false]);
   const [reelLocked, setReelLocked] = useState([false, false, false, false]);
@@ -228,90 +215,97 @@ const CookieFlavorSlotMachine = () => {
   };
 
   return (
-    //<div className="max-w-screen mx-auto p-6 bg-white rounded-lg shadow-4xl text-center">
-//    <h1 className="text-2xl font-bold mb-4">Midnight Munchies Custom Cookie Creator</h1>
-      //<div className="max-w-6xl flex justify-center mb-6">
-    <div className="container mx-auto px-6 py-12">
-      <h1 className="text-3 xl font-bold mb-4">Midnight Munchies Custom Cookie Creator</h1>
-       <div className="max-w-4xl flex justify-center mb-6">
-        <div className="border-2 border-gray-300 rounded-lg p-2 mr-2">
-          <h2 className="text-sm font-semibold mb-2">Dough Flavor</h2>
-          <div className="flex flex-col items-center">
-            <AnimatedReel 
-              isSpinning={reelSpinning[0]}
-              finalTopping={finalToppings[0]}
-              isLocked={reelLocked[0]}  
-              options={DOUGH_TYPES}
-            />
-            <Button
-              onClick={() => toggleLock(0)}
-              variant="ghost"
-              className="mt-2"
-              disabled={false}
-            >
-              {reelLocked[0] ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
-            </Button>
-          </div>
-        </div>
-
-        <div className="border-2 border-gray-300 rounded-lg p-2">
-          <h2 className="text-sm font-semibold mb-2">Munchie Mix'ins</h2>
-          <div className="flex">
-            {finalToppings.slice(1).map((topping, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <AnimatedReel 
-                  isSpinning={reelSpinning[index + 1]}
-                  finalTopping={topping}
-                  isLocked={reelLocked[index + 1]}
-                  options={TOPPINGS}
-                />
+    <div className="container mx-auto max-w-xl p-4 bg-white rounded-lg shadow-lg text-center">
+      <h1 className="text-xl font-bold mb-3">Cookie Flavor Randomizer</h1>
+      
+      <div className="flex flex-col items-center">
+        <div className="flex justify-center mb-4 w-full">
+          <div className="flex flex-col items-center border-2 border-gray-300 rounded-lg p-1 mr-1">
+            <h2 className="text-xs font-semibold mb-1">Dough Flavor</h2>
+            <div className="flex flex-col items-center">
+              <AnimatedReel 
+                isSpinning={reelSpinning[0]}
+                finalTopping={finalToppings[0]}
+                isLocked={reelLocked[0]}
+                options={DOUGH_TYPES}
+              />
+              <div className="flex flex-col items-center mt-1">
                 <Button 
-                  onClick={() => toggleLock(index + 1)}
+                  onClick={() => toggleLock(0)}
                   variant="ghost"
+                  className="mb-1"
                   disabled={false}
-                  className="mt-2"
+                  //size="sm"
                 >
-                  {reelLocked[index + 1] ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
+                  {reelLocked[0] ? <Lock className="h-3 w-3" /> : <Unlock className="h-3 w-3" />}
                 </Button>
+                {!isAnySpinning && <p className="text-xs text-center">{finalToppings[0].name}</p>}
               </div>
-            ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center border-2 border-gray-300 rounded-lg p-1">
+            <h2 className="text-xs font-semibold mb-1">Munchie Mix'ins</h2>
+            <div className="flex">
+              {finalToppings.slice(1).map((topping, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <AnimatedReel 
+                    isSpinning={reelSpinning[index + 1]}
+                    finalTopping={topping}
+                    isLocked={reelLocked[index + 1]}
+                    options={TOPPINGS}
+                  />
+                  <div className="flex flex-col items-center mt-1">
+                    <Button 
+                      onClick={() => toggleLock(index + 1)}
+                      variant="ghost"
+                      className="mb-1"
+                      disabled={false}
+                    >
+                      {reelLocked[index + 1] ? <Lock className="h-3 w-3" /> : <Unlock className="h-3 w-3" />}
+                    </Button>
+                    {!isAnySpinning && <p className="text-xs text-center">{topping.name}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex justify-center mb-6">
-        {finalToppings.map((_, index) => (
-          <Button 
-            key={index}
-            onClick={() => stopReel(index)}
-            variant="default"
-            disabled={!isAnySpinning || reelLocked[index] || !reelSpinning[index]}
-            className="w-24 m-2 bg-grey-400 hover:bg-grey-500"
-          >
-            Stop
-          </Button>
-        ))}
-      </div>
+        <div className="flex justify-center mb-4 w-full">
+          {finalToppings.map((_, index) => (
+            <Button 
+              key={index}
+              onClick={() => stopReel(index)}
+              disabled={!isAnySpinning || reelLocked[index] || !reelSpinning[index]}
+              className="w-20 m-1 bg-gray-200 hover:bg-gray-300"
+              //size="sm"
+            >
+              Stop
+            </Button>
+          ))}
+        </div>
 
-      <Button 
-        onClick={generateCombination} 
-        disabled={isAnySpinning}
-        className="w-full"
-      >
-        {isAnySpinning ? 'Spinning...' : 'Generate Flavor'}
-      </Button>
+        <Button 
+          onClick={generateCombination} 
+          disabled={isAnySpinning}
+          className="w-full max-w-md"
+        >
+          {isAnySpinning ? 'Spinning...' : 'Generate Flavor'}
+        </Button>
+      </div>
 
       {!isAnySpinning && (
-        <div className="mt-4 p-3 bg-gray-100 rounded">
-          <h2 className="font-semibold mb-2">Your Unique Cookie Flavor:</h2>
-          <p className="font-bold">
+        <div className="mt-3 p-2 bg-gray-100 rounded">
+          <h2 className="text-sm font-semibold mb-1">Your Unique Cookie Flavor:</h2>
+          <p className="text-sm font-bold">
             {finalToppings[0].name} with {finalToppings[1].name}, {finalToppings[2].name}, and {finalToppings[3].name}
           </p>
         </div>
       )}
     </div>
   );
-};
+}
 // About Us Page Component
 function AboutPage() {
   return (

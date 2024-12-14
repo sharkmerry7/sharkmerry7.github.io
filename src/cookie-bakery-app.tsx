@@ -278,7 +278,7 @@ function CookieFlavorSlotMachine() {
               key={index}
               onClick={() => stopReel(index)}
               disabled={!isAnySpinning || reelLocked[index] || !reelSpinning[index]}
-              className="w-20 m-1 bg-gray-300 hover:bg-gray-400"
+              className="w-20 m-1 bg-gray-400 hover:bg-gray-500"
               //size="sm"
             >
               Stop

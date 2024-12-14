@@ -215,7 +215,7 @@ function CookieFlavorSlotMachine() {
   };
 
   return (
-    <div className="container mx-auto max-w-xl p-4 bg-white rounded-lg shadow-lg text-center">
+    <div className="container mx-auto max-w-4xl p-4 bg-white rounded-lg shadow-lg text-center">
       <h1 className="text-3xl font-bold mb-3">Midnight Munchies Custom Cookie Creator</h1>
       
       <div className="flex flex-col items-center">

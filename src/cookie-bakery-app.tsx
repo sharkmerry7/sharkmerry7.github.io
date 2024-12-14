@@ -150,7 +150,7 @@ function AnimatedReel({ isSpinning, finalTopping, isLocked, options }) {
   const nextTopping = options[(currentIndex + 1) % options.length];
 
   return (
-    <div className="w-24 h-32 m-1 border border-gray-200 flex flex-col items-center justify-center overflow-hidden">
+    <div className="w-20 h-28 m-1 border border-gray-200 flex flex-col items-center justify-center overflow-hidden">
       <div className="flex flex-col items-center">
         <div className="text-3xl">{prevTopping.emoji}</div>
         <div className="text-3xl">{currentTopping.emoji}</div>
@@ -402,9 +402,9 @@ function BakeryApp() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<CookieFlavorSlotMachine />} />
           <Route path="/menu" element={<MenuPage />} />
-          <Route path="/flavor-generator" element={<CookieFlavorSlotMachine />} />
+          <Route path="/flavor-generator" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
 

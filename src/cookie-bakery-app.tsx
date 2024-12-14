@@ -216,7 +216,7 @@ function CookieFlavorSlotMachine() {
 
   return (
     <div className="container mx-auto max-w-4xl p-4 bg-amber-50 rounded-lg shadow-lg text-center">
-      <h1 className="text-4xl font-bold mb-3 dark:text-white">Midnight Munchies Custom Cookie Creator</h1>
+      <h1 className="text-4xl font-bold mb-3 text-amber-900">Midnight Munchies Custom Cookie Creator</h1>
        
       <div className="flex flex-col items-center">
         <div className="flex justify-center mb-4 w-full">
@@ -239,7 +239,7 @@ function CookieFlavorSlotMachine() {
                 >
                   {reelLocked[0] ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
                 </Button>
-                {!isAnySpinning && <p className="text-xs text-center dark:text-white">{finalToppings[0].name}</p>}
+                {!isAnySpinning && <p className="text-xs text-center text-amber-900">{finalToppings[0].name}</p>}
               </div>
             </div>
           </div>
@@ -264,7 +264,7 @@ function CookieFlavorSlotMachine() {
                     >
                       {reelLocked[index + 1] ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
                     </Button>
-                    {!isAnySpinning && <p className="text-xs text-center dark:text-white">{topping.name}</p>}
+                    {!isAnySpinning && <p className="text-xs text-center text-amber-900">{topping.name}</p>}
                   </div>
                 </div>
               ))}
